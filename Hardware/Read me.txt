@@ -6,3 +6,7 @@ this complete repository consist of code files related to hardware part of my pr
 
 to use this code one need to have Arduino IDE to upload the code into respected micro controller boards as mentioned above
 
+
+a)esp32 robot folder consists of code that is related to Patrolling robot
+b)ai thinker folder consists of code that is related to camera live streaming and gun detection
+
