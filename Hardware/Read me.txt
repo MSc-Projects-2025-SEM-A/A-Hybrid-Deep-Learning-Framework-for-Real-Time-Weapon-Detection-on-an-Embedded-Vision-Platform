@@ -8,5 +8,6 @@ to use this code one need to have Arduino IDE to upload the code into respected 
 
 
 a)esp32 robot folder consists of code that is related to Patrolling robot
-b)ai thinker folder consists of code that is related to camera live streaming and gun detection
+b)camera folder consists of code that is related to camera live streaming and gun detection
+
 
