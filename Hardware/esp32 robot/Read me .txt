@@ -30,26 +30,27 @@ The robot learns optimal movement behavior over time, avoids obstacles, maps vis
 📶 ESP32 runs as a Wi-Fi Access Point
 
 🧩 Modular, extensible architecture
-
+........................................................................................................
 🛠️ Hardware Requirements
-Component	Quantity
-ESP32	1
-Ultrasonic Sensors (HC-SR04 or equivalent)	3
-L298N Motor Driver	1
-DC Motors	2
-Robot Chassis + Wheels	1
-Power Supply / Battery	1
+Component                                           	Quantity
+ESP32	                                                   1
+Ultrasonic Sensors (HC-SR04 or equivalent)             	 3
+L298N Motor Driver	                                     1
+DC Motors	                                               4
+Robot Chassis + Wheels	                                 1
+Power Supply / Battery	                                 1
+..............................................................................................................
 💻 Software Requirements
 
 Arduino IDE
 
 ESP32 Board Support Package
-
+...............................................................................................................
 Required Libraries:
 
 #include <WiFi.h>
 #include <WebServer.h>
-
+...............................................................................................................
 🔌 Pin Configuration
 Ultrasonic Sensors
 Direction	Trigger Pin	Echo Pin
@@ -64,6 +65,7 @@ IN2	26
 ENB	22
 IN3	27
 IN4	14
+.............................................................................................................
 🧠 Reinforcement Learning Design
 State Space
 
@@ -93,7 +95,7 @@ Learning Parameters
 Learning Rate (α)   = 0.3
 Discount Factor (γ) = 0.8
 Exploration Rate (ε)= 0.2
-
+..................................................................................................................
 🌐 Web Interface
 
 The ESP32 hosts a live patrol visualization server.
@@ -103,7 +105,7 @@ SSID: AI_Patrol_Bot
 
 Web Dashboard
 http://192.168.4.1/
-
+..............................................................................................................
 Visualization
 
 🔵 Blue heatmap → Frequently visited areas
@@ -111,7 +113,7 @@ Visualization
 🔴 Red line → Robot movement path
 
 🔄 Auto-refresh every 800 ms
-
+.............................................................................................
 🔄 Program Flow
 
 Initialize sensors, motors, Q-table, and Wi-Fi
@@ -135,14 +137,11 @@ Compute reward
 Update Q-table
 
 Update live map
-
+..................................................................................................................
 📊 Output & Monitoring
 
 Serial Monitor Logs
-
 State | Action | Reward
 
-
 Real-time browser-based patrol visualization
-
 Dynamic heatmap of explored areas
