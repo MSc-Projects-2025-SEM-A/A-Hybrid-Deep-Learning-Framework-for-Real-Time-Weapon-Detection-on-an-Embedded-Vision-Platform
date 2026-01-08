@@ -1,0 +1,5 @@
+names:
+  0: gun
+path: dataset/working
+train: images/train
+val: images/val
