@@ -6,7 +6,7 @@ link:[link](https://github.com/antbern/gridmap-slam-robot/blob/master/robot/ARDU
 
 
 
-
+student:Aditya sattuluri
 
 /\* This example shows how to get single-shot range
 
@@ -981,4 +981,5 @@ void actuate\_motor(motor\_t\* motor, double u){
 &nbsp;   }
 
 }
+
 
