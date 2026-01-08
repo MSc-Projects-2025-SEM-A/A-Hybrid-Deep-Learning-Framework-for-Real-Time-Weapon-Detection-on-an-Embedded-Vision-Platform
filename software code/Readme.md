@@ -24,7 +24,7 @@ This repository contains the implementation of an **Automated Real-Time Gun Dete
 
 ```text
 .
-├── gun.pt                     # Trained YOLOv10 gun detection model
+├── gun.pt                     # Trained YOLOv10 gun detection model (unable to upload because of file>25mb)
 ├── infer.py                   # Image / webcam inference script
 ├── server.py                  # Flask inference server (ESP32 compatible)
 ├── app.py                     # Streamlit live dashboard
@@ -194,3 +194,4 @@ Dashboard code reference .
   ```text
   source, class, confidence, x1, y1, x2, y2, timestamp
   ```
+
