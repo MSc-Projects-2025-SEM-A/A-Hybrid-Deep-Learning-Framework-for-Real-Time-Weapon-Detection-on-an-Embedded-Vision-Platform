@@ -1,0 +1,110 @@
+📌 Overview
+
+This project implements an ESP32-CAM–based image capture and upload system designed to work as a client node in an AI-powered weapon detection framework.
+
+The ESP32-CAM periodically captures images and uploads them to a remote AI server using an HTTP POST request. The server performs weapon detection and annotation, enabling integration with autonomous patrol or surveillance systems.
+
+✨ Features
+
+📸 Image capture using ESP32-CAM
+
+🌐 Wi-Fi connectivity
+
+🚀 Periodic image upload to AI server
+
+🧠 Compatible with AI/ML weapon detection models
+
+🔄 Configurable upload interval
+
+📦 Multipart/form-data HTTP transmission
+
+🔌 Modular and lightweight design
+
+🛠️ Hardware Requirements
+Component	                 Quantity
+ESP32-CAM (AI-Thinker )	            1
+USB-to-TTL Programmer	            1
+External Power Supply (5V)	    1
+Jumper Wires	                 As required
+💻 Software Requirements
+
+Arduino IDE
+
+ESP32 Board Support Package
+...............................................................................................
+Required Libraries:
+
+#include "esp_camera.h"
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+...................................................................................................
+Board configuration file:
+
+#include "board_config.h"
+...................................................................................................
+⚙️ Configuration
+Wi-Fi Credentials
+
+Update the SSID and password to match your network:
+
+const char* ssid = "shyam";
+const char* password = "shyam123";
+.....................................................................................................
+AI Server Endpoint
+
+Set the server URL where the AI model is hosted:
+
+const char* serverUrl = "http://10.216.232.228:5000/predict_annotated";
+
+
+The server must accept multipart/form-data image uploads and return inference results.
+....................................................................................................
+Upload Interval
+
+Images are uploaded every 10 seconds by default:
+
+const unsigned long uploadInterval = 10000;
+.......................................................................................................
+📷 Camera Configuration
+Parameter	Value
+Frame Size	VGA
+Pixel Format	JPEG
+JPEG Quality	20
+Frame Buffer	PSRAM
+Clock Frequency	20 MHz
+
+This configuration balances image clarity and network bandwidth.
+.......................................................................................................
+🔄 Program Flow
+
+Initialize serial communication
+
+Configure ESP32-CAM pins and camera parameters
+
+Connect to Wi-Fi
+
+Periodically:
+
+Capture image
+
+Encode as JPEG
+
+Send to AI server using HTTP POST
+
+Release camera buffer
+...................................................................................................
+📤 Image Upload Mechanism
+
+Uses HTTP multipart/form-data
+
+Image sent as:
+
+name="image"
+filename="esp32.jpg"
+content-type: image/jpeg
+
+
+Boundary-based payload construction
+
+Memory-safe allocation and cleanup

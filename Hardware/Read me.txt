@@ -1,0 +1,7 @@
+this complete repository consist of code files related to hardware part of my project which includes:
+
+1.camera live streaming(AI thinker camera module)
+2.Patrolling robot (esp32 development board)
+
+
+to use this code one need to have Arduino IDE to upload the code into respected miceo controller boards as mentioned above

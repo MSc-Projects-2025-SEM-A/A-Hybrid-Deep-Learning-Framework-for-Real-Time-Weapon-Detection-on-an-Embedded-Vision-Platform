@@ -1,0 +1,148 @@
+this slam.ino contains code that is related to the movement of robot you need to use Arduino IDE for the uploading of the code to esp32 micro controller to make the robot move autonomously 
+.............................................................................................................
+
+🤖 Automated Weapon Detection & AI Patrol System
+
+ESP32-Based Autonomous Patrol Robot using Reinforcement Learning
+
+📌 Overview
+
+This repository contains the firmware for an ESP32-powered autonomous patrol robot that navigates its environment using ultrasonic sensors and a Q-learning reinforcement learning algorithm.
+
+The robot learns optimal movement behavior over time, avoids obstacles, maps visited areas, and provides real-time patrol visualization through a web interface hosted directly on the ESP32.
+
+⚠️ Note: This implementation focuses on AI-based patrol and navigation. Vision-based weapon detection can be integrated as a future extension.
+
+✨ Features
+
+🚗 Autonomous navigation using Q-learning
+
+📡 Obstacle detection with 3 ultrasonic sensors
+
+🧠 Reinforcement learning with dynamic reward system
+
+🌐 Real-time web-based patrol map visualization
+
+🔥 Heatmap of visited locations
+
+📍 Path tracking and exploration history
+
+📶 ESP32 runs as a Wi-Fi Access Point
+
+🧩 Modular, extensible architecture
+
+🛠️ Hardware Requirements
+Component	Quantity
+ESP32	1
+Ultrasonic Sensors (HC-SR04 or equivalent)	3
+L298N Motor Driver	1
+DC Motors	2
+Robot Chassis + Wheels	1
+Power Supply / Battery	1
+💻 Software Requirements
+
+Arduino IDE
+
+ESP32 Board Support Package
+
+Required Libraries:
+
+#include <WiFi.h>
+#include <WebServer.h>
+
+🔌 Pin Configuration
+Ultrasonic Sensors
+Direction	Trigger Pin	Echo Pin
+Front	GPIO 5	GPIO 18
+Left	GPIO 16	GPIO 17
+Right	GPIO 19	GPIO 21
+Motor Driver (L298N)
+Function	GPIO
+ENA	23
+IN1	25
+IN2	26
+ENB	22
+IN3	27
+IN4	14
+🧠 Reinforcement Learning Design
+State Space
+
+Each ultrasonic sensor is discretized into 3 distance zones:
+
+Zone	Distance
+0	< 20 cm
+1	20–40 cm
+2	> 40 cm
+
+Total states:
+
+3 × 3 × 3 = 27 states
+
+Action Space
+Action ID	Action
+0	Move Forward
+1	Rotate Left
+2	Rotate Right
+3	Move Backward
+Reward Function
+Condition	Reward
+Obstacle very close (front)	−20
+Medium clearance	+5
+Clear path ahead	+10
+Learning Parameters
+Learning Rate (α)   = 0.3
+Discount Factor (γ) = 0.8
+Exploration Rate (ε)= 0.2
+
+🌐 Web Interface
+
+The ESP32 hosts a live patrol visualization server.
+
+Wi-Fi Access
+SSID: AI_Patrol_Bot
+
+Web Dashboard
+http://192.168.4.1/
+
+Visualization
+
+🔵 Blue heatmap → Frequently visited areas
+
+🔴 Red line → Robot movement path
+
+🔄 Auto-refresh every 800 ms
+
+🔄 Program Flow
+
+Initialize sensors, motors, Q-table, and Wi-Fi
+
+Start web server
+
+Log initial position
+
+Loop execution:
+
+Read ultrasonic sensors
+
+Encode environment state
+
+Select action (ε-greedy)
+
+Execute movement
+
+Compute reward
+
+Update Q-table
+
+Update live map
+
+📊 Output & Monitoring
+
+Serial Monitor Logs
+
+State | Action | Reward
+
+
+Real-time browser-based patrol visualization
+
+Dynamic heatmap of explored areas
