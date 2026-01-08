@@ -4,4 +4,5 @@ this complete repository consist of code files related to hardware part of my pr
 2.Patrolling robot (esp32 development board)
 
 
-to use this code one need to have Arduino IDE to upload the code into respected miceo controller boards as mentioned above
+to use this code one need to have Arduino IDE to upload the code into respected micro controller boards as mentioned above
+
